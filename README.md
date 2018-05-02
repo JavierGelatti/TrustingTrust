@@ -1,7 +1,13 @@
 # Hacking en compiladores: Revisitando "Reflections on Trusting Trust"
-Repositorio con el código de la charla realizada en el marco del Congreso Internacional de Seguridad Informática "Tucumán Hack Weekend", organizado por la Rama Estudiantil IEEE Tucumán, en la Universidad Tecnológica Nacional, Facultad Regional Tucumán.
+Repositorio con el código de la charla realizada en el marco del Congreso Internacional de Seguridad Informática "Tucumán Hack Weekend" 2018, organizado por la Rama Estudiantil IEEE Tucumán, en la Universidad Tecnológica Nacional, Facultad Regional Tucumán.
 
-Para poder ejecutar los ejemplos, se tiene que tener instalado `gcc`.
+## Aclaración
+El objetivo de esta charla es producir una reflexión sobre el rol de la confianza en el uso y desarrollo de sistemas, y los desafíos que existen dentro de la seguridad informática, mostrando un tipo de ataque conocido (publicado en un paper de 1984), además de otros temas interesantes (como programas que se auto-reproducen, o definiciones auto-referenciadas dentro del compilador).
+
+No hay que dejar de tener en cuenta las responsabilidades que tenemos como profesionales, y los aspectos éticos que existen cuando se realizan actividades de este tipo. Una de las ideas que se buscaron transmitir con la charla tiene que ver con la manera en la que las actividades que realizamos están basadas en la confianza. Al ejecutar cualquier tipo de ataque, se está aprovechando la confianza de las demás personas, lo que es muy peligroso para toda la comunidad.
+
+## Requisitos
+Para poder ejecutar los ejemplos, el compilador `gcc` tiene que estar instalado en el sistema.
 
 ## Diapositivas
 > https://www.slideshare.net/secret/JzmoWCP1wTMjNB
