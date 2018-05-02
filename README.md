@@ -9,6 +9,9 @@ No hay que dejar de tener en cuenta las responsabilidades que tenemos como profe
 ## Requisitos
 Para poder ejecutar los ejemplos, el compilador `gcc` tiene que estar instalado en el sistema.
 
+## Video
+> https://youtu.be/hxJRzQeoYTI
+
 ## Diapositivas
 > https://www.slideshare.net/secret/JzmoWCP1wTMjNB
 
@@ -20,4 +23,10 @@ https://github.com/yeokm1/reflections-on-trusting-trust
 3. Fully Countering Trusting Trust through Diverse Double-Compiling, David A. Wheeler (2009)
 https://www.dwheeler.com/trusting-trust/dissertation/wheeler-trusting-trust-ddc.pdf 
 4. Critique of Diverse Double-Compiling, Paul Jakma (2010)
-https://pjakma.files.wordpress.com/2010/09/critique-ddc.pdf 
+https://pjakma.files.wordpress.com/2010/09/critique-ddc.pdf
+
+Los ejemplos de Quine fueron obtenidos de:
+1. Smalltalk
+http://forum.world.st/Smalltalk-Quine-tp4640396p4640464.html
+2. Ruby y SQL
+https://en.wikipedia.org/wiki/Quine_(computing)#Examples
