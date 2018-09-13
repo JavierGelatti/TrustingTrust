@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
+#include <stdbool.h>
 
 typedef char* string;
 typedef FILE* file;
@@ -37,6 +38,8 @@ typedef struct {
     file source, gcc;
     size_t inputLength;
     int i;
+    bool hasErrors;
+    string errorDescription;
 } compiler_state;
 
 compiler_state state;
@@ -63,28 +66,35 @@ void close() {
     fclose(state.gcc);
 }
 
+void raiseError(string description) {
+    state.hasErrors = true;
+    state.errorDescription = description;
+}
+
 file gcc(string destination) {
     string gccCommand = format("gcc -x c -o %s -", destination);
     return popen(gccCommand, "w");
 }
 
-string character(char c) {
+char* character(char c) {
     return format("%c", c);
 }
 
-string interpret(char c) {
+char* interpret(char c) {
     if (c != '\\')
-        return format("%c", c);
+        return character(c);
 
     c = next();
     if (c == 'n')
         return "\n";
     if (c == '\\')
-        return "\\";
+        return character(92);
     if (c == '\'')
-        return "\'";
+        return character(39);
     if (c == '\"')
-        return "\"";
+        return character(34);
+
+    raiseError("Unknown character");
 }
 
 void processString() {
@@ -141,8 +151,13 @@ int main(int argc, string argv[]) {
     state.inputLength = flength(state.source);
     state.i = 0;
     state.gcc = gcc(destination);
+    state.hasErrors = false;
 
     compile();
-
     close();
+
+    if (state.hasErrors) {
+        printf("ERROR: %s\n", state.errorDescription);
+        exit(1);
+    }
 }
