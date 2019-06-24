@@ -86,7 +86,7 @@ char* interpret(char c) {
 
     c = next();
     if (c == 'n')
-        return "\n";
+        return character(10);
     if (c == '\\')
         return character(92);
     if (c == '\'')
