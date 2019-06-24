@@ -2,5 +2,5 @@
 #include <stdlib.h>
 
 int main() {
-    printf("%s", "Hello, world");
+    printf("%s", "Hola mundo");
 }
