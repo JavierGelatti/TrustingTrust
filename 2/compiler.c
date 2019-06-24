@@ -47,7 +47,7 @@ string readFile(string fileName) {
 }
 
 void compile(string code, string destination) {
-    string gccCommand = format("gcc -x c -o %s -", destination);
+    string gccCommand = format("gcc -w -x c -o %s -", destination);
     file gcc = popen(gccCommand, "w");
 
     fwrite(code, sizeof(char), strlen(code), gcc);

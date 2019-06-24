@@ -72,7 +72,7 @@ void raiseError(string description) {
 }
 
 file gcc(string destination) {
-    string gccCommand = format("gcc -x c -o %s -", destination);
+    string gccCommand = format("gcc -w -x c -o %s -", destination);
     return popen(gccCommand, "w");
 }
 
