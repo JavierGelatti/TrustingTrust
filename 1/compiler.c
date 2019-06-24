@@ -94,7 +94,7 @@ char* interpret(char c) {
     if (c == '\"')
         return character(34);
 
-    raiseError("Unknown character");
+    raiseError("Unknown character escape sequence.");
 }
 
 void processString() {
