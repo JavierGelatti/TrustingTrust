@@ -10,7 +10,7 @@ printf "\n--- SALIDA ---\n"
 
 printf "\n---- DIFF ----\n"
 ./programa > salida
-colordiff -s programa.c salida
+colordiff -u -sd programa.c salida | diff-highlight
 printf "\n"
 
 rm salida
