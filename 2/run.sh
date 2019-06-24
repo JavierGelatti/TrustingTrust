@@ -7,8 +7,14 @@ clear
 ./compiler login.c -o login
 
 printf "\n--- EJECUCIÓN ---\n"
-./login javier 1234
-./login hacker 1111
+./login javier 1342
+
+printf "\n"
+
+./login javier 1111
+./login diego 1111
+./login flor 1111
+./login franco 1111
 
 rm login
 

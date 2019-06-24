@@ -26,13 +26,9 @@ bool authorized(account accounts[], string usr, string pwd) {
     return false;
 }
 
-void show(string message) {
-    printf("%s\n", message);
-}
-
 int main(int argc, string argv[]) {
     if (argc < 3) {
-        show("Argumentos insuficientes");
+        printf("Argumentos insuficientes\n");
         exit(1);
     }
 
@@ -40,15 +36,15 @@ int main(int argc, string argv[]) {
     string pwd = argv[2];
 
     account systemAccounts[] = {
-        { .usr = "javier", .pwd = "1234" },
-        { .usr = "diego",  .pwd = "1111" },
-        { .usr = "flor",   .pwd = "0000" },
+        { .usr = "javier", .pwd = "1342" },
+        { .usr = "diego",  .pwd = "Ho1A" },
+        { .usr = "flor",   .pwd = "@5sQ" },
         { .usr = "franco", .pwd = "eldt" }
     };
 
     if (authorized(systemAccounts, usr, pwd)) {
-        show("Autorizado :)");
+        printf("Bienvenido, %s\n", usr);
     } else {
-        show("Acceso rechazado.");
+	printf("Acceso rechazado.\n");
     }
 }
