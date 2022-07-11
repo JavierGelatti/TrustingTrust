@@ -43,7 +43,7 @@ int main(int argc, string argv[]) {
     };
 
     if (authorized(systemAccounts, usr, pwd)) {
-        printf("Bienvenido, %s\n", usr);
+        printf("Inició sesión %s\n", usr);
     } else {
 	printf("Acceso rechazado.\n");
     }
