@@ -4,6 +4,8 @@
 #include <string.h>
 #include <stdbool.h>
 
+#define DEBUG false
+
 typedef char* string;
 typedef FILE* file;
 
@@ -58,7 +60,7 @@ char next() {
 
 void write(string text) {
     fwrite(text, sizeof(char), strlen(text), state.gcc);
-    //printf("%s", text);
+    if (DEBUG) printf("%s", text);
 }
 
 void close() {
