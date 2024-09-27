@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 clear
 
 ./compiler compiler.c -o compiler
@@ -17,5 +17,3 @@ printf "\n"
 ./login franco 1111
 
 rm login
-
-printf "\n"
