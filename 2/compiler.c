@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
+#include <stdbool.h>
 
 typedef char* string;
 typedef FILE* file;
@@ -52,7 +53,11 @@ void compile(string code, string destination) {
 
     fwrite(code, sizeof(char), strlen(code), gcc);
 
-    fclose(gcc);
+    if (fclose(gcc) != 0) exit(1);
+}
+
+bool equals(string a, string b) {
+    return strcmp(a, b) == 0;
 }
 
 int main(int argc, string argv[]) {
